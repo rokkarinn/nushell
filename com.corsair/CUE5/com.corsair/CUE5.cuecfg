@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<map name="Backup">
+		<value name="Version">5.31.112</value>
+	</map>
+	<map name="DataCollectionSettings">
+		<value name="configuration_loaded_date">2025-09-04T12:31:11.136</value>
+		<value name="dataConsent">true</value>
+		<value name="iCueSettingsEventHash">217a81e23853cc4faf6dc10b8355e781</value>
+		<value name="iCueSettingsEventSent">false</value>
+		<value name="inited">true</value>
+		<value name="initialProfilesSent">true</value>
+		<value name="machine_id">f2b4de52d4740b734956816074f5fbc4</value>
+		<value name="needToSendSystemSensorsInfo">true</value>
+		<value name="session_ended">false</value>
+	</map>
+	<value name="Language">en</value>
+	<value name="LastDataCollectionConsentAppVersion">5.16.75</value>
+	<value name="LastLoadedAppVersion">5.31.112</value>
+	<map name="LightingLibraryStorage">
+		<value name="version">401</value>
+	</map>
+	<map name="Privacy">
+		<value name="DataCollectionConsent">true</value>
+		<value name="DataCollectionConsentTimestamp">02 Sep 2025 10:51:10 +0000</value>
+	</map>
+	<map name="Storage Locations">
+		<value name="-Users-ivarbj-Library-Application Support-Corsair-CUE5-quicklightingzones-quickLightingZones">true</value>
+	</map>
+	<map name="SwUpdate">
+		<value name="LastCheckDate">2025-09-16</value>
+	</map>
+	<map name="Update">
+		<value name="PrevUpdateTime">2025-09-04T12:31:08.561Z</value>
+		<value name="UpdateCount">2</value>
+		<value name="UpdateEndTime">2025-09-04T12:31:08.572Z</value>
+	</map>
+	<value name="defaultProfile">{66ac6bc1-0428-4aa1-969d-37260a04e41f}</value>
+</config>
