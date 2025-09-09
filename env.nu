@@ -7,4 +7,9 @@ $env.PATH = ($env.PATH | split row (char esep) | append $npm_global_bin | uniq)
 let rancher_desktop_bin = ($env.HOME | path join ".rd/bin")
 $env.PATH = ($env.PATH | split row (char esep) | append $rancher_desktop_bin | uniq)
 $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense'
+$env.config.edit_mode = 'vi'
+let ZELLIJ_AUTO_ATTACH: bool = true
+let ZELLIJ_AUTO_EXIT: bool = true 
+$env.ZELLIJ_AUTO_ATTACH = $ZELLIJ_AUTO_ATTACH
+$env.ZELLIJ_AUTO_EXIT = $ZELLIJ_AUTO_EXIT
 

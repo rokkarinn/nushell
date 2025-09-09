@@ -1,5 +1,5 @@
 let asdf_data_dir = (
-  if ( $env | get --ignore-errors ASDF_DATA_DIR | is-empty ) {
+  if ( $env | get --optional ASDF_DATA_DIR | is-empty ) {
     $env.HOME | path join '.asdf'
   } else {
     $env.ASDF_DATA_DIR
@@ -8,7 +8,7 @@ let asdf_data_dir = (
 "$asdf_data_dir/completions/nushell.nu"
 
 let shims_dir = (
-  if ( $env | get --ignore-errors ASDF_DATA_DIR | is-empty ) {
+  if ( $env | get --optional ASDF_DATA_DIR | is-empty ) {
     $env.HOME | path join '.asdf'
   } else {
     $env.ASDF_DATA_DIR
