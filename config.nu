@@ -21,23 +21,11 @@ let fish_completer = {|spans|
     }
 }
 
-#zellij
-def start_zellij [] {
-  if 'ZELLIJ' not-in ($env | columns) {
-    if 'ZELLIJ_AUTO_ATTACH' in ($env | columns) and $env.ZELLIJ_AUTO_ATTACH == 'true' {
-      zellij attach -c
-    } else {
-      zellij
-    }
 
-    if 'ZELLIJ_AUTO_EXIT' in ($env | columns) and $env.ZELLIJ_AUTO_EXIT == 'true' {
-      exit
-    }
-  }
-}
+use '/Users/ivarbj/.config/nushell/modules/aws-profile.nu' *
+use '/Users/ivarbj/.config/broot/launcher/nushell/br' *
+use '/Users/ivarbj/.config/nushell/modules/start_zellij.nu' *
 
 start_zellij
-
-use '/Users/ivarbj/.config/broot/launcher/nushell/br' *
 
 source ~/.cache/carapace/init.nu
