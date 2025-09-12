@@ -12,7 +12,7 @@
 		<value name="initialProfilesSent">true</value>
 		<value name="machine_id">f2b4de52d4740b734956816074f5fbc4</value>
 		<value name="needToSendSystemSensorsInfo">true</value>
-		<value name="session_ended">false</value>
+		<value name="session_ended">true</value>
 	</map>
 	<value name="Language">en</value>
 	<value name="LastDataCollectionConsentAppVersion">5.16.75</value>

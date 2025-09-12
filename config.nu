@@ -1,11 +1,9 @@
+
 #alias ll = eza -lah
 alias ll = ls -la
 alias k = kubectl
-alias switch = switcher 
-alias kns = switcher ns
-alias kctx = switcher
-alias kubectx = switcher 
-alias kubens = switcher ns
+alias kns = kubens
+alias kctx = kubectx 
 alias vim = nvim
 let fish_completer = {|spans|
     fish --command $"complete '--do-complete=($spans | str replace --all "'" "\\'" | str join ' ')'"
@@ -22,7 +20,7 @@ let fish_completer = {|spans|
 }
 
 
-use '/Users/ivarbj/.config/nushell/modules/aws-profile.nu' *
+use '/Users/ivarbj/.config/nushell/modules/awsprofile.nu' *
 use '/Users/ivarbj/.config/broot/launcher/nushell/br' *
 use '/Users/ivarbj/.config/nushell/modules/start_zellij.nu' *
 
