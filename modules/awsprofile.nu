@@ -40,5 +40,7 @@ export def --env "aws profile" [profile?: string@profiles] {
     leapp session stop $"($env.AWS_PROFILE)"
   }
   leapp session start $env.AWS_PROFILE
+  kctx 
+  kns-update-cache 
   print $"Switched to aws profile ($env.AWS_PROFILE)."
 }
