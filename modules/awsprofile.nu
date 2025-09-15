@@ -12,6 +12,7 @@ def profiles [] {
 }
 
 export def --env "aws profile" [profile?: string@profiles] {
+  use './kubens.nu' *
   #  let nglId = (leapp integration list -x --filter="Integration Name=AWS NextGL" | awk 'NF>1{print $1}' | tail -1)
   #  let pblId = (leapp integration list -x --filter="Integration Name=AWS PBL" | awk 'NF>1{print $1}' | tail -1)
   #  let nglstatus = (leapp integration list --filter="Integration Name=AWS NextGL" | grep -wi Online | awk 'NF>1{print $6}')
