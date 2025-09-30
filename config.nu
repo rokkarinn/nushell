@@ -23,6 +23,7 @@ use '/Users/ivarbj/.config/nushell/modules/wrapper' *
 use '/Users/ivarbj/.config/broot/launcher/nushell/br' *
 use '/Users/ivarbj/.config/nushell/modules/kubernetes' *
 #use /Users/ivarbj/.config/nushell/nupm/modules/bru/bru 
+use /Users/ivarbj/.config/nushell/modules/completion *
 
 source ~/.zoxide.nu
 
