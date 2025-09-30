@@ -4,6 +4,7 @@ alias ll = ls -la
 alias k = kubectl
 alias kctx = kubectx 
 alias vim = nvim
+alias brew = arch -arm64 brew
 let fish_completer = {|spans|
     fish --command $"complete '--do-complete=($spans | str replace --all "'" "\\'" | str join ' ')'"
     | from tsv --flexible --noheaders --no-infer
@@ -18,14 +19,11 @@ let fish_completer = {|spans|
     }
 }
 
-use '/Users/ivarbj/.config/nushell/modules/awsprofile.nu' *
+use '/Users/ivarbj/.config/nushell/modules/wrapper' *
 use '/Users/ivarbj/.config/broot/launcher/nushell/br' *
-use '/Users/ivarbj/.config/nushell/modules/start_zellij.nu' *
-use '/Users/ivarbj/.config/nushell/modules/kubens.nu' *
 use '/Users/ivarbj/.config/nushell/modules/kubernetes' *
-use /Users/ivarbj/.config/nushell/nupm/modules/bru/bru 
+#use /Users/ivarbj/.config/nushell/nupm/modules/bru/bru 
 
-use nupm/nupm
 source ~/.zoxide.nu
 
 
@@ -35,5 +33,10 @@ use '/Users/ivarbj/.asdf/completions/nushell.nu' *
 ## 
 
 start_zellij
+
+use nupm/nupm
+
+# Themes
+source ./themes/tokyonight/tokyonight.nu
 
 source ~/.cache/carapace/init.nu
