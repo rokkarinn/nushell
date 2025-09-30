@@ -18,11 +18,21 @@ let fish_completer = {|spans|
     }
 }
 
-
 use '/Users/ivarbj/.config/nushell/modules/awsprofile.nu' *
 use '/Users/ivarbj/.config/broot/launcher/nushell/br' *
 use '/Users/ivarbj/.config/nushell/modules/start_zellij.nu' *
-use '/users/ivarbj/.config/nushell/modules/kubens.nu' *
+use '/Users/ivarbj/.config/nushell/modules/kubens.nu' *
+use '/Users/ivarbj/.config/nushell/modules/kubernetes' *
+use /Users/ivarbj/.config/nushell/nupm/modules/bru/bru 
+
+use nupm/nupm
+source ~/.zoxide.nu
+
+
+## custom completions
+use '/Users/ivarbj/.config/nushell/custom_completions/make-completions.nu' *
+use '/Users/ivarbj/.asdf/completions/nushell.nu' *
+## 
 
 start_zellij
 
