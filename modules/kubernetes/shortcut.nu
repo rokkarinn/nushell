@@ -14,6 +14,7 @@ export alias ky = kube-get-as-yaml
 export alias ke = kube-edit
 export alias kdel = kube-delete
 export alias kgno = kube-get-node
+export alias kgn = kube-get ns
 export alias kgi = kube-get ing
 export alias kgp = kube-get pods
 export alias kwp = kube-get pods -W

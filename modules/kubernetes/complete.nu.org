@@ -51,11 +51,11 @@ export def cmpl-kube-kind [] {
     }
 }
 
-export def cmpl-kube-res [context: string] {
-    let ctx = kube-config
-    let kind = $context
-    let ns = $ctx | get data |  get contexts | where name == $"(kubectl config current-context)" | flatten | get namespace
-    kubectl get -n ...$ns $kind | from ssv -a | get NAME
+export def cmpl-kube-res [context: string, offset: int] {
+    let ctx = $context | parse "{key}={value}"
+    let kind = $ctx | get args.0
+    let ns = if ($ctx.opt.namespace? | is-empty) { [] } else { [-n $ctx.opt.namespace] }
+    kubectl get ...$ns $kind | from ssv -a | get NAME
 }
 
 export def cmpl-kube-res-via-name [context: string, offset: int] {

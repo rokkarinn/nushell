@@ -25,9 +25,9 @@ def krefine [kind] {
     }
 }
 
-export def kube [action: string, kind:string@cmpl-kube-kind, resource?:string@cmpl-kube-res] {
+export def kube [action: string, kind:string@cmpl-kube-kind, resource?:string@(cmpl-kube-res $kind)] {
   match $action {
-    'get' => {kube-get $kind},
+    'get' => {kube-get $kind $resource},
     'edit' => {kube-edit $kind $resource},
   }
 }
@@ -103,14 +103,14 @@ export def kube-change-namespace [namespace: string@cmpl-kube-ns] {
 # kubectl get
 export def kube-get [
     kind: string@cmpl-kube-kind
-    resource?: string@cmpl-kube-res
+    resource?: string@(cmpl-kube-res $kind)
     --namespace (-n): string@cmpl-kube-ns
     --jsonpath (-p): string@cmpl-kube-jsonpath
     --selector (-l): string
     --verbose (-v)
     --wide (-w)
     --watch (-W)
-    --all (-a)
+    --all (-A)
 ] {
     mut args = []
     if $all {
@@ -468,7 +468,7 @@ export def kube-rollout-undo [
 # kubectl top pod
 export def kube-top-pod [
     --namespace (-n): string@cmpl-kube-ns
-    --all(-a)
+    --all(-A)
 ] {
     if $all {
         kubectl top pod -A | from ssv -a | rename namespace name cpu mem

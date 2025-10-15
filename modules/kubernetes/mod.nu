@@ -7,6 +7,7 @@ export use helm.nu *
 export use conf.nu *
 export use resources.nu *
 export use compose.nu *
+export use complete.nu *
 export use kadm.nu *
 export use utils.nu *
 export use kubectl.nu *
