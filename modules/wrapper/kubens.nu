@@ -21,23 +21,28 @@ export def kns-update-cache [] {
   }
 }
 
-export def update-current-context [] {
+export def --env update-current-context [] {
   $env.currentContext = open $env.KUBECONFIG | from yaml | get current-context
 }
 
-export def namespaces [] {
+def ns [] {
   update-current-context
   kns-update-cache
-  let namespaces = open $"($env.HOME)/.kube/kubectx-cache/($env.currentContext)" 
+  let namespaces = open $"($env.HOME)/.kube/kubectx-cache/($env.currentContext)"
+  | lines
   | collect
   { completions: $namespaces, options: { sort: false } }
 }
 
-export def --env kns [ns?: string@namespaces = ""] {
+export def kns [nsp?: string@ns] {
   update-current-context
-  cat $"($env.HOME)/.kube/kubectx-cache/(yq -r '.current-context' ($env.KUBECONFIG) |  cut -d'/' -f2)" | fzf --query $ns |  xargs -L1 -I% yq e -i '.contexts[].context.namespace = "%"' ($env.KUBECONFIG)
-  let ns = $"(yq '.contexts[] | select(.name==env(currentContext)).context.namespace' ($env.KUBECONFIG))"
-  print $"Context ($env.currentContext) modified."
-  print $"Active namespace is ($ns)"
+  if not ($nsp | is-empty) {
+    kubectl config set-context --current --namespace=$"($nsp)"
+  } else {
+    cat $"($env.HOME)/.kube/kubectx-cache/(yq -r '.current-context' ($env.KUBECONFIG) |  cut -d'/' -f2)" | fzf --tac |  xargs -L1 -I% yq e -i '.contexts[].context.namespace = "%"' ($env.KUBECONFIG)
+    print $"Context ($env.currentContext) modified."
+  }
+  let namesp = $"(yq '.contexts[] | select(.name==env(currentContext)).context.namespace' ($env.KUBECONFIG))"
+  print $"Active namespace is ($namesp)"
   kns-update-cache
 }
