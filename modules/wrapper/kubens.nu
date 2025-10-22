@@ -1,4 +1,4 @@
-export def kns-update-cache [] {
+export def kns-update-cache [--force(-f)] {
   update-current-context
   let cacheDir: string = $"($env.HOME)/.kube/kubectx-cache"
   let cacheFilePath: string = $"($cacheDir)/($env.currentContext)"
@@ -9,6 +9,8 @@ export def kns-update-cache [] {
   if not ($cacheFilePath | path exists) {
     $updateCache = true
   } else if ( (date now) - (ls $cacheFilePath | get modified.0 ) > 1day) {
+    $updateCache = true
+  } else if ($force) {
     $updateCache = true
   }
   if ($updateCache) {
