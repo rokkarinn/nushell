@@ -36,6 +36,8 @@ export def --env "aws profile" [profile?: string@profiles] {
     }
   }
   $env.KUBECONFIG = $'/Users/ivarbj/.kube/($env.AWS_PROFILE).kube'
+  rm $'/Users/ivarbj/.kube/config'
+  ln -s $'/Users/ivarbj/.kube/($env.AWS_PROFILE).kube' /Users/ivarbj/.kube/config
   #let sessionStatus = (leapp session list -x --output json | from json | where profileId == $env.AWS_PROFILE | get status).0
   #if $sessionStatus == "active" {
     #   leapp session stop $"($env.AWS_PROFILE)"
