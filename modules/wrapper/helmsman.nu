@@ -1,5 +1,5 @@
 export def --wrapped helm [...args] {
-  let nojson = ["--help" "help" "pull" "push" "update" "verify" "version" "env" "dep" "dependency"]
+  let nojson = ["--help" "help" "pull" "push" "update" "verify" "version" "env" "dep" "dependency" "uninstall" "get" "repo"]
   let first = ($args | select 0) | first
   if ( ($first == "ls") or ($first == "list") or ($first == "history") ) {
     ^helm ...$args --output json 
