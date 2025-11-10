@@ -38,6 +38,7 @@ def ns [] {
 
 export def kns [nsp?: string@ns] {
   update-current-context
+  kns-update-cache
   if not ($nsp | is-empty) {
     kubectl config set-context --current --namespace=$"($nsp)"
   } else {
