@@ -40,3 +40,9 @@ $env.NU_LIB_DIRS = ( $env.NU_LIB_DIRS | append ( $env.NUPM_HOME | path join "mod
 $env.NU_LIB_DIRS = ( $env.NU_LIB_DIRS | append ( $env.NUPM_HOME | path join "overlays" ) | uniq )
 let nupm_scripts: string = ( $env.NUPM_HOME | path join "scripts" )
 $env.PATH = ( $env.PATH | split row ( char esep ) | prepend $nupm_scripts | uniq )
+
+let mise_path = $nu.default-config-dir | path join mise.nu
+^mise activate nu | sa
+
+let mise_path = $nu.default-config-dir | path join mise.nu
+^mise activate nu | save $mise_path --force

@@ -41,3 +41,5 @@ use nupm/nupm
 source ./themes/tokyonight/tokyonight.nu
 
 source ~/.cache/carapace/init.nu
+
+use ($nu.default-config-dir | path join mise.nu)
