@@ -44,5 +44,7 @@ $env.PATH = ( $env.PATH | split row ( char esep ) | prepend $nupm_scripts | uniq
 let mise_path = $nu.default-config-dir | path join mise.nu
 ^mise activate nu | sa
 
+$env.GITHUB_TOKEN = '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'
+
 let mise_path = $nu.default-config-dir | path join mise.nu
 ^mise activate nu | save $mise_path --force

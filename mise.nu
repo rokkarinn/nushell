@@ -1,4 +1,4 @@
-set,PATH,/Users/ivarbj/Git/config/nushell/nupm/scripts:/Users/ivarbj/Git/config/nushell/nupm/bin:/opt/homebrew/sbin:/opt/homebrew/bin:/Users/ivarbj/.local/share/nvim/mason/bin:/Users/ivarbj/.asdf/shims:/Users/ivarbj/Library/Application Support/carapace/bin:/Applications/kitty.app/Contents/MacOS:/usr/bin:/bin:/usr/sbin:/sbin:/Users/ivarbj/bin:/opt/homebrew/lib/node_modules/bin:/Users/ivarbj/.rd/bin:/Users/ivarbj/.krew:/Users/ivarbj/.krew/bin:/Users/ivarbj/.cargo/bin:/usr/local/bin
+set,PATH,/Users/ivarbj/Git/config/nushell/nupm/scripts:/Users/ivarbj/Git/config/nushell/nupm/bin:/opt/homebrew/sbin:/opt/homebrew/bin:/Users/ivarbj/.local/share/nvim/mason/bin:/Users/ivarbj/.asdf/installs/neovim/0.11.4/bin:/Users/ivarbj/.asdf/shims:/Users/ivarbj/Library/Application Support/carapace/bin:/Applications/kitty.app/Contents/MacOS:/usr/bin:/bin:/usr/sbin:/sbin:/Users/ivarbj/bin:/opt/homebrew/lib/node_modules/bin:/Users/ivarbj/.rd/bin:/Users/ivarbj/.krew:/Users/ivarbj/.krew/bin:/Users/ivarbj/.cargo/bin:/usr/local/bin
 hide,MISE_SHELL,
 hide,__MISE_DIFF,
 hide,__MISE_DIFF,
