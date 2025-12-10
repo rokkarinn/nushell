@@ -1,5 +1,9 @@
+export def brew (...args: string) {
+  ^arch -arm64 brew ...$args
+}
+
 def brew_wrapper (...args: string) {
-  run-external "brew" ...$args
+  run-external "arch" "-arm64" "brew" ...$args
 }
 
 export def description [formula: string] {

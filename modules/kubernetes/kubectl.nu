@@ -25,7 +25,11 @@ def krefine [kind] {
     }
 }
 
-export def kube [action: string, kind:string@cmpl-kube-kind, resource?:string@(cmpl-kube-res $kind)] {
+export def kube [
+  action: string,
+  kind:string@cmpl-kube-kind,
+  resource?:string@cmpl-kube-res
+] {
   match $action {
     'get' => {kube-get $kind $resource},
     'edit' => {kube-edit $kind $resource},
@@ -103,7 +107,7 @@ export def kube-change-namespace [namespace: string@cmpl-kube-ns] {
 # kubectl get
 export def kube-get [
     kind: string@cmpl-kube-kind
-    resource?: string@(cmpl-kube-res $kind)
+    resource?: string@cmpl-kube-res
     --namespace (-n): string@cmpl-kube-ns
     --jsonpath (-p): string@cmpl-kube-jsonpath
     --selector (-l): string

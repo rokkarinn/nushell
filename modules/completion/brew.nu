@@ -1,6 +1,6 @@
 # Homebrew
 
-use wrapper brew *
+use wrapper brew_wrapper *
 
 def installable [context: string] {
   let query = $context | split words | last
