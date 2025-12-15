@@ -13,8 +13,8 @@ export def images [] {
   )
 }
 
-export def ps [] {
-  ( ^docker ps --format '{{json .}}'
+export def ps [...args] {
+  ( ^docker ps --format '{{json .}}' ...$args
   | lines 
   | par-each {|$l| $l | from json }
   | upsert CreatedAt {|r| $r.CreatedAt | str replace 'GMT' '' | into datetime }

@@ -5,7 +5,7 @@ def profiles [] {
   | str replace '[profile' 'profile =' 
   | str replace ']' '' 
   | split column --regex '(\s=\s|\s)' -n 2 
-  | get column2 
+  | get column1
   | collect
 
   { completions: $profiles, options: { sort: false } }
@@ -28,11 +28,11 @@ export def --env "aws profile" [profile?: string@profiles] {
   }
   if ( $profile | is-empty ) {
     export-env {
-      $env.AWS_PROFILE = ( open ~/.aws/config.leapp | lines | where $it =~ profile | str replace '[profile' 'profile =' | str replace ']' '' | str replace -a '"' '' | split column --regex '(\s=\s|\s)' -n 2 | get column2 | to text | fzf)
+      $env.AWS_PROFILE = ( open ~/.aws/config.leapp | lines | where $it =~ profile | str replace '[profile' 'profile =' | str replace ']' '' | str replace -a '"' '' | split column --regex '(\s=\s|\s)' -n 2 | get column1 | to text | fzf)
     }
   } else {
     export-env {
-      $env.AWS_PROFILE = ( open ~/.aws/config.leapp | lines | where $it =~ profile | str replace '[profile' 'profile =' | str replace ']' '' | str replace -a '"' '' | split column --regex '(\s=\s|\s)' -n 2 | get column2 | to text | fzf --query $profile --bind one:accept )
+      $env.AWS_PROFILE = ( open ~/.aws/config.leapp | lines | where $it =~ profile | str replace '[profile' 'profile =' | str replace ']' '' | str replace -a '"' '' | split column --regex '(\s=\s|\s)' -n 2 | get column1 | to text | fzf --query $profile --bind one:accept )
     }
   }
   $env.KUBECONFIG = $'/Users/ivarbj/.kube/($env.AWS_PROFILE).kube'
